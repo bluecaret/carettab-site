@@ -3,30 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaretTab - New Tab Page Replacement</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
-  <title>Document</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <h1>CaretTab</h1>
-  <div id="carettab-gallery" class="mask">
-    <a href="assets/portfolio/carettab.png" class="thumb"></a>
-    <a href="assets/portfolio/carettab/screenshot-200-01.PNG" class="thumb--hidden"></a>
-    <a href="assets/portfolio/carettab/screenshot-200-02.PNG" class="thumb--hidden"></a>
-    <a href="assets/portfolio/carettab/screenshot-200-03.PNG" class="thumb--hidden"></a>
+  <h1><img src="./img/carettab-logo.png" alt="CaretTab"></h1>
+
+  <p class="tagline">New Tab page replacement for Chrome, Firefox, and Edge</p>
+
+  <div class="gallery">
+    <button id="scroll-left" class="gallery_nav prev" type="button">&laquo;</button>
+    <button id="scroll-right" class="gallery_nav next" type="button">&raquo;</button>
+    <div id="gallery_scroll" class="gallery_scroll">
+      <div id="lightbox">
+        <a href="img/screenshot-300-01.png"><img src="./img/screenshot-300-01.png" alt="Screenshot of CaretTab"></a>
+        <a href="img/screenshot-300-02.png"><img src="./img/screenshot-300-02.png" alt="Screenshot of CaretTab"></a>
+        <a href="img/screenshot-300-03.png"><img src="./img/screenshot-300-03.png" alt="Screenshot of CaretTab"></a>
+        <a href="img/screenshot-300-04.png"><img src="./img/screenshot-300-04.png" alt="Screenshot of CaretTab"></a>
+        <a href="img/screenshot-300-05.png"><img src="./img/screenshot-300-05.png" alt="Screenshot of CaretTab"></a>
+        <a href="img/screenshot-300-06.png"><img src="./img/screenshot-300-06.png" alt="Screenshot of CaretTab"></a>
+        <a href="img/screenshot-300-07.png"><img src="./img/screenshot-300-07.png" alt="Screenshot of CaretTab"></a>
+      </div>  
+    </div>
   </div>
 
-  <div id="slider">
-    <a href="#" class="control_next">&gt;</a>
-    <a href="#" class="control_prev">&lt;</a>
-    <ul>
-      <li>SLIDE 1</li>
-      <li style="background: #aaa;">SLIDE 2</li>
-      <li>SLIDE 3</li>
-      <li style="background: #aaa;">SLIDE 4</li>
-    </ul>  
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <nav>
+    <div>
+      <a href="https://chrome.google.com/webstore/detail/carettab-new-tab-page/cojpndognjdcakkimaloeealehpkljna?hl=en-US" class="btn">Get it on Chrome</a>
+      <a href="https://addons.mozilla.org/en-US/firefox/addon/carettab/" class="btn">Get it on Firefox</a>
+      <a href="" class="btn">Get it on Edge</a>
+      <a href="https://github.com/bluecaret/carettab" class="btn">Contribute on GitHub</a>
+    </div>
+    <a href="terms.html" class="terms-btn">Privacy Policy and Terms</a>
+  </nav>
+  <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
   <script src="./slider.js"></script>
+  <script>
+      lightGallery(document.getElementById('lightbox'));
+
+      let scrollStep = 500;
+      let content = document.getElementById('gallery_scroll');
+
+      document.getElementById('scroll-right').addEventListener('click', function(e) {
+        let sl = content.scrollLeft;
+        let cw = content.scrollWidth;
+
+        if ((sl + scrollStep) >= cw) {
+          content.scrollTo({
+            left: cw,
+            behavior: 'smooth',
+          });
+        } else {
+          content.scrollTo({
+            left: (sl + scrollStep),
+            behavior: 'smooth',
+          });
+        }
+      });
+
+      document.getElementById('scroll-left').addEventListener('click', function(e) {
+        let sl = content.scrollLeft;
+
+        if ((sl - scrollStep) <= 0) {
+          content.scrollTo({
+            left: 0,
+            behavior: 'smooth',
+          });
+        } else {
+          content.scrollTo({
+            left: (sl - scrollStep),
+            behavior: 'smooth',
+          });
+        }
+      });
+  </script>
 </body>
 </html>
