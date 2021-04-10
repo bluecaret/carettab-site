@@ -3,24 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CaretTab - New Tab Page Replacement</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="A beautifully simplistic, fully customizable, New Tab page with multiple clocks, date, search, bookmarks, custom backgrounds, and more!">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/css/lightgallery.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-  <link rel="manifest" href="./site.webmanifest">
-  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <h1><a href="index.html"><img src="./img/carettab-logo.png" alt="CaretTab"></a></h1>
 
-  <section class="thank-you">
-    <h2>Thank you for using CaretTab!</h2>
+  <main class="home">
+    <header>
+      <h1>
+        <a href="/"><img src="/img/carettab-logo.png" alt="CaretTab logo"></a>
+      </h1>
+    </header>
 
-    <p>Sorry to see you go! If you have any comments, suggestions, or bug reports please contact the developer on Twitter <a href="https://twitter.com/bluecaret">@BlueCaret</a>.</p>
-  </section>
+    <section>
+      <h2>Thank you for using CaretTab!</h2>
+
+      <p>Sorry to see you go! If you have any comments, suggestions, or bug reports please contact the developer on Twitter <a href="https://twitter.com/bluecaret">@BlueCaret</a> or via <a href="mailto:bluecaret@outlook.com">email</a>.</p>
+    </section>
+
+    <footer>
+      <p class="footerNav">
+        <a href="/">home</a> | 
+        <a href="https://github.com/bluecaret/carettab">github</a> | 
+        <a href="/terms">privacy &amp; terms</a> | 
+        <a href="https://bluecaret.com/about">about</a> | 
+        <a href="https://bluecaret.com/contact">contact</a>
+      </p>
+      <p>
+        Find <a href="https://www.johnwhancock.com/">me</a> on <a href="https://twitter.com/BlueCaret">Twitter</a>, <a href="https://github.com/bluecaret">GitHub</a>, <a href="https://www.linkedin.com/in/johnwhancock/">LinkedIn</a>, or send me an <a href="mailto:bluecaret@outlook.com">email</a>.
+      </p>
+      <a href="https://bluecaret.com" class="bluecaret" title="Designed and developed by BlueCaret"><img src="img/bluecaret-logo.svg" alt="BlueCaret logo"></a>
+    </footer>
+  </main>
+
+  <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
+  <script>
+    lightGallery(document.getElementById('lightbox'));
+  </script>
+
 </body>
 </html>

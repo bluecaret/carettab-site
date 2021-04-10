@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="300" viewBox="0 0 100 300">
+<style>
+  .a{
+    fill:#4DE6FF;
+  }
+  .b{
+    fill:#71A0FF;
+  }
+  .c{
+    fill:#00B3EA;
+  }
+  .d{
+    fill:#375BEF;
+  }
+</style>
+  <rect x="0" y="0" width="100" height="100" class="a"/>
+  <rect x="50" y="0" width="50" height="50" class="b"/>
+  <rect x="0" y="100" width="100" height="100" class="a"/>
+  <rect x="0" y="150" width="50" height="50" class="b"/>
+  <rect x="0" y="200" width="100" height="100" class="c"/>
+  <rect x="50" y="250" width="50" height="50" class="d"/>
+</svg>
