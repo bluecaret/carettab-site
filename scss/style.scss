@@ -1,149 +1,215 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @import '../node_modules/normalize-scss/sass/normalize/import-now';
 
 $blue: #3C5FF3;
 $lightblue: #3EB3ED;
 
+$b1: #4DE6FF;
+$b2: #71A0FF;
+$b3: #00B3EA;
+$b4: #375BEF;
+
+$b2Text: #6E5AD3;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  width: 100%;
-  height: 100%;
 }
 
 html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
+  font-size: 62.5%;  /* 10px = 1rem */
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;  /* px fallback */
+  font-size: 1.6rem;  /* default font-size for document */
   line-height: 1.5;
-  background: #fff;
-  color: rgb(46, 46, 46);
-  margin: 0;
+  background: white;
+  background-image: url(../img/bluecaret-pattern.svg);
+  background-size: 10%;
+  background-position: right 0 top 0;
+  background-repeat: repeat-y;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', serif;
-  line-height: 1.2;
-  font-weight: 400;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  min-height: 100vh;
 }
 
-h1 {
-  margin: 0;
-  text-align: center;
+a {
+  color: $b4;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    color: darken($b4, 10%);
+    text-decoration: underline;
+  }
+  &:focus {
+    outline: .2rem dashed black;
+    outline-offset: .2rem;
+  }
+}
+
+header {
+  width: 80rem;
+  max-width: 90%;
+  margin-top: 4rem;
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
   img {
-    width: auto;
-    max-height: 130px;
-    height: 10vh;
-    margin: 5vh 5rem 0;
+    width: 90%;
+    max-width: 38rem;
+    height: auto;
   }
 }
 
-.tagline {
-  font-size: 3vh;
-  text-align: center;
-  margin: 2vh 0 5vh 0;
-}
-
-.gallery {
-  position: relative;
-  width: 100%;
-  background: rgb(230, 232, 238);
-  // box-shadow: 0 0 2rem 1rem rgba(240, 240, 240, 1);
-  .gallery_scroll {
-    overflow-x: scroll;
-    &::-webkit-scrollbar {
-      width: 0px;
-      height: 0px;
-      background: transparent;
+section {
+  width: 80rem;
+  max-width: 90%;
+  display: block;
+  margin: 4rem 0;
+  h2 {
+    color: $b2Text;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+  }
+  .lead {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-top: -1rem;
+  }
+  a.btn {
+    background: $b1;
+    padding: 1rem 3rem;
+    margin: 0rem 1rem 1rem 0;
+    border-radius: 1rem;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .5s;
+    &:hover,
+    &:focus {
+      background: $b2;
+    }
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 .2rem white, 0 0 0 .4rem black;
+    }
+    @media screen and (max-width: 699px) {
+      padding: .6rem 1.5rem;
+      margin: 0rem .7rem .7rem 0;
     }
   }
-  #lightbox {
-    display: grid;
-    grid-template: 1fr / repeat(7, 1fr);
-    grid-gap: 3vh;
-    margin: 3vh 7vh;
-    img {
-      display: block;
-      height: 42vh;
-      max-height: 800px;
-      width: auto;
-      box-shadow: 0 0 2rem .5rem #bcbdca;
-      transition: box-shadow .3s;
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul.features {
+    margin: 1rem 0 3rem 0;
+    padding: 0;
+    @media screen and (min-width: 700px) {
+      columns: 2;
     }
-    a {
-      display: block;
-      &:hover {
-        img {
-          box-shadow: 0 0 3rem 1rem #bcbdca;
-        }
+    li {
+      margin: .5rem 0 0 1em;
+      padding: 0 0 0 1em;
+      &::marker {
+        content: '\2713';
+        font-weight: 700;
+        color: $b2Text;
       }
     }
   }
-  .gallery_nav {
-    border: 0;
-    background: rgba(0, 0, 0, .5);
-    box-shadow: 0 0 2rem 1rem rgba(0, 0, 0, .2);
-    color: white;
-    position: absolute;
-    top: 50%;
-    height: 12vh;
-    width: 4vh;
-    padding: 0;
-    text-align: center;
-    margin-top: -6vh;
-    border-radius: 0 100% 100% 0;
-    font-size: 4vh;
-    &.next {
-      right: 0;
-      border-radius: 100% 0 0 100%;
+}
+
+footer {
+  width: 80rem;
+  max-width: 90%;
+  font-size: 1.6rem;
+  margin-bottom: 3rem;
+  .footerNav {
+    font-size: 2rem;
+    a {
+      display: inline-block;
+      margin: 0 1rem;
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
-}
-
-nav {
-  margin: 3vh 0;
-  text-align: center;
-  > div {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  p {
+    margin: 0 0 1rem 0;
   }
 }
 
-.btn,
-.terms-btn {
-  display: inline-block;
-  background: $blue;
-  color: white;
-  font-size: 1.8vh;
-  margin: 1vh 2vh;
-  padding: 1.8vh 3vh;
-  border-radius: 1vh;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    background: darken($blue, 5%);
-  }
+.smallprint {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
 }
 
-.terms-btn {
-  background: transparent;
-  color: $blue;
-  font-size: 1.5vh;
-  margin: 3vh 0 1vh;
-  padding: 0;
-  border-radius: 0;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    background: transparent;
-    text-decoration: underline;
+.aboutMeImgWrap {
+  float: right;
+  shape-outside: circle();
+  width: 35%;
+  max-width: 20rem;
+  min-width: 15rem;
+  margin-top: -2rem;
+}
+.aboutMeImg {
+  width: calc(100% - 4rem);
+  height: auto;
+  border-radius: 50%;
+  margin: 2rem;
+  border: 1rem solid $b2;
+}
+
+.screenshots {
+  display: grid;
+  grid-template: 1fr / repeat(auto-fill, minmax(17rem, 1fr));
+  grid-gap: 2rem;
+  margin: 3rem -5rem;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: -0.6rem -0.6rem 0 0 $b3;
+    transition: box-shadow .5s;
+  }
+  a {
+    &:hover {
+      img {
+        box-shadow: -0.6rem -0.6rem 0 0 $b4;
+      }
+    }
+    &:focus {
+      outline: .2rem solid black;
+      outline-offset: 0;
+    }
+  }
+  @media screen and (max-width: 1140px) {
+    margin: 3rem 0;
+  }
+  @media screen and (max-width: 480px) {
+    grid-template: 1fr / 1fr 1fr;
+    grid-gap: 1.3rem;
+    img {
+      box-shadow: -0.4rem -0.4rem 0 0 $b1;
+    }
+    a {
+      &:hover {
+        img {
+          box-shadow: -0.4rem -0.4rem 0 0 $b4;
+        }
+      }
+    }
   }
 }
 
@@ -169,5 +235,14 @@ section.thank-you {
   }
   p {
     font-size: 2rem;
+  }
+}
+
+.bluecaret {
+  display: block;
+  margin: 2rem 0 0 0;
+  img {
+    width: 20rem;
+    height: auto;
   }
 }

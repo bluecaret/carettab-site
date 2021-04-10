@@ -6,7 +6,7 @@
   "scripts": {
     "build:css": "node-sass --output-style compressed --source-map true scss -o public/css",
     "watch:css": "npm run build:css && node-sass --watch --output-style compressed --source-map true scss -o public/css",
-    "serve": "live-server --open=public --watch=public --port=8000",
+    "serve": "cd public && live-server --watch=public --port=8000",
     "start": "run-p watch:css serve",
     "build": "npm run build:css",
     "deploy": "gh-pages -d public"
