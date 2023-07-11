@@ -40,10 +40,10 @@ class AppHeader extends HTMLElement {
               : ""
           }
           <div class="getItBar">
-            <a href="#"
+            <a href="https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna"
               ><img src="/img/chrome-store.svg" height="60" alt=""
             /></a>
-            <a href="#"><img src="/img/edge-store.svg" height="60" alt="" /></a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/carettab-new-tab-clock-/bfpmncaohmjelebfobabccfjgmeolloe"><img src="/img/edge-store.svg" height="60" alt="" /></a>
           </div>
         </div>
       </header>
