@@ -5,8 +5,8 @@ class AppFooter extends HTMLElement {
       <style>
       .footer {
         padding: 4rem 0 2rem;
-        background: var(--b3);
-        background: linear-gradient(to bottom, var(--b2) 20%, var(--b3) 120%);
+        background: var(--b1);
+        background: linear-gradient(to bottom, var(--b2) 20%, var(--b1) 120%);
         --mask:
           radial-gradient(2.33rem at 50% 3.20rem,#000 99%,#0000 101%) calc(50% - 4rem) 0/8rem 100%,
           radial-gradient(2.33rem at 50% -1.2rem,#0000 99%,#000 101%) 50% 2rem/8rem 100% repeat-x;
@@ -45,7 +45,7 @@ class AppFooter extends HTMLElement {
       .footerLinks a,
       .credit {
         font-size: 1.1rem;
-        color: hsl(210deg 40% 90%);
+        color: hsl(210deg 40% 10%);
         text-decoration: none;
       }
       .footerLinks a:hover,
@@ -53,7 +53,6 @@ class AppFooter extends HTMLElement {
         text-decoration: underline;
       }
       .credit {
-        opacity: .4;
         font-size: .8em;
       }
       .footerLogo {
@@ -91,11 +90,12 @@ class AppFooter extends HTMLElement {
         flex-wrap: wrap;
         align-items: center;
         margin-top: 1.5rem;
+        color: hsl(210deg 40% 10%);
       }
       .copyright {
         text-align: left;
         font-size: .9rem;
-        font-weight: 200;
+        font-weight: 400;
         line-height: 1.1;
       }
       .bluecaret {
@@ -110,12 +110,14 @@ class AppFooter extends HTMLElement {
       <footer class="footer">
         <div class="footerContainer">
           <div class="getItBarFooter">
-            <a href="https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna"><img src="/img/chrome-store.svg" height="60" alt="" /></a>
-            <a href="https://microsoftedge.microsoft.com/addons/detail/carettab-new-tab-clock-/bfpmncaohmjelebfobabccfjgmeolloe"><img src="/img/edge-store.svg" height="60" alt="" /></a>
+            <a href="https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna"
+              ><img src="/img/chrome-store.svg" height="60" alt="Chrome Web store icon with the text: 'Available in the Chrome Web Store'"
+            /></a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/carettab-new-tab-clock-/bfpmncaohmjelebfobabccfjgmeolloe"><img src="/img/edge-store.svg" height="60" alt="Edge Web store icon with the text: 'Get it for Microsoft Edge'" /></a>
           </div>
           <h2 class="footerLogo">
             <a href="/">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 369">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" viewBox="0 0 500 369">
                 <path
                   d="M20 332 201 18h99l181 314-10 19H334l-83-145-84 145H31l-11-19Zm32-7h101l87-150h21l87 150h101L286 43h-70L52 325Z"
                 />
@@ -143,7 +145,7 @@ class AppFooter extends HTMLElement {
               class="bluecaret"
               title="Designed and developed by BlueCaret"
             >
-              <img src="/img/bluecaret-logo-3.svg" alt="BlueCaret logo" />
+              <img src="/img/bluecaret-logo-alt.svg" alt="BlueCaret logo" />
             </a>
             <div class="copyright">
               Copyright © ${currentYear} BlueCaret.<br/>

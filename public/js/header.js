@@ -7,7 +7,7 @@ class AppHeader extends HTMLElement {
         <div class="container">
           <h1 class="logo">
             <a href="/">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 369">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" viewBox="0 0 500 369">
                 <path
                   d="M20 332 201 18h99l181 314-10 19H334l-83-145-84 145H31l-11-19Zm32-7h101l87-150h21l87 150h101L286 43h-70L52 325Z"
                 />
@@ -41,9 +41,9 @@ class AppHeader extends HTMLElement {
           }
           <div class="getItBar">
             <a href="https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna"
-              ><img src="/img/chrome-store.svg" height="60" alt=""
+              ><img src="/img/chrome-store.svg" height="60" alt="Chrome Web store icon with the text: 'Available in the Chrome Web Store'"
             /></a>
-            <a href="https://microsoftedge.microsoft.com/addons/detail/carettab-new-tab-clock-/bfpmncaohmjelebfobabccfjgmeolloe"><img src="/img/edge-store.svg" height="60" alt="" /></a>
+            <a href="https://microsoftedge.microsoft.com/addons/detail/carettab-new-tab-clock-/bfpmncaohmjelebfobabccfjgmeolloe"><img src="/img/edge-store.svg" height="60" alt="Edge Web store icon with the text: 'Get it for Microsoft Edge'" /></a>
           </div>
         </div>
       </header>
