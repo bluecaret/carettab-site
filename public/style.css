@@ -29,16 +29,28 @@ body {
 }
 
 
-h2 {
+h2, .h2 {
   font-size: 2.2rem;
   font-weight: 800;
   margin: 2rem 0 1rem;
 }
 
-h3 {
+h3, .h3 {
   font-size: 1.8rem;
   font-weight: 200;
   margin: 1.5rem 0 .6rem;
+}
+
+h4, .h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  margin: 1.5rem 0 .6rem;
+}
+
+.largeHeadingMargin {
+  margin-top: 4rem;
 }
 
 p {
@@ -55,6 +67,44 @@ p a {
 }
 p a:hover {
   text-decoration: underline;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.center {
+  margin-inline: auto;
+}
+
+.btn {
+  display: inline-grid;
+  place-items: center;
+  text-decoration: none;
+  padding: .4rem 1rem;
+  border-radius: .6rem;
+  border: 1px solid var(--b1);
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: var(--b2);
+  color: black;
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-out;
+  cursor: pointer;
+}
+
+.btnBlock {
+  display: grid;
+}
+
+.btn:hover {
+  box-shadow: 0 0 8px 0px var(--b1);
+  text-decoration: none;
+}
+
+.btn:active {
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease-in;
 }
 
 .container {
@@ -311,6 +361,8 @@ native-gallery img {
   font-size: 1.6rem;
 }
 .featureContent h2,
+.featureContent h3,
+.featureContent h4,
 .featureContent p {
   margin: 0;
 }

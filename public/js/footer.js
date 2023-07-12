@@ -1,6 +1,6 @@
 class AppFooter extends HTMLElement {
   connectedCallback() {
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear()
     this.innerHTML = /*html*/ `
       <style>
       .footer {
@@ -133,8 +133,11 @@ class AppFooter extends HTMLElement {
             </a>
           </h2>
           <div class="footerLinks">
-            <a href="/support">Support</a>
-            <a href="https://github.com/bluecaret/carettab/">Github</a>
+            <a href="/help">Help & Tips</a>
+            <a href="https://github.com/bluecaret/carettab/discussions" target="_blank" rel="noreferrer">
+              Discussions
+            </a>
+            <a href="https://github.com/bluecaret/carettab/" rel="noreferrer">Github</a>
             <a href="https://bluecaret.com/privacy">Privacy Policy</a>
             <a href="https://bluecaret.com/terms">Terms of Use</a>
             <a href="https://bluecaret.com/contact">Contact</a>
@@ -156,8 +159,8 @@ class AppFooter extends HTMLElement {
           
         </div>
       </footer>
-    `;
+    `
   }
 }
 
-window.customElements.define("app-footer", AppFooter);
+window.customElements.define('app-footer', AppFooter)
