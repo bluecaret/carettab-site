@@ -1,2 +1,3 @@
-# carettab-site
-Home of the CaretTab Browser Extension.
+# CaretTab
+
+Website of the CaretTab Browser Extension by BlueCaret.

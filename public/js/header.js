@@ -1,9 +1,8 @@
 class AppHeader extends HTMLElement {
   connectedCallback() {
-    const subpage = this.getAttribute("data-subpage") || false;
-    console.log(subpage);
+    const subpage = this.getAttribute('data-subpage') || false
     this.innerHTML = /*html*/ `
-      <header class="header ${subpage ? "subpage" : ""}">
+      <header class="header ${subpage ? 'subpage' : ''}">
         <div class="container">
           <h1 class="logo">
             <a href="/">
@@ -37,7 +36,7 @@ class AppHeader extends HTMLElement {
                 transform the way you experience browsing. Get it today for free!
               </p>
             `
-              : ""
+              : ''
           }
           <div class="getItBar">
             <a href="https://chrome.google.com/webstore/detail/carettab-new-tab-clock-an/cojpndognjdcakkimaloeealehpkljna"
@@ -47,8 +46,8 @@ class AppHeader extends HTMLElement {
           </div>
         </div>
       </header>
-    `;
+    `
   }
 }
 
-window.customElements.define("app-header", AppHeader);
+window.customElements.define('app-header', AppHeader)
