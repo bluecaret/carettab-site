@@ -43,6 +43,34 @@
       .form-group input {
         font-family: 'Source Sans 3', sans-serif;
       }
+      .btn:disabled {
+        box-shadow: 0 0 0 0 transparent;
+        opacity: 0.8;
+        cursor: wait;
+      }
+      .message-box {
+        display: block;
+      }
+      .message-box.info,
+      .message-box.success,
+      .message-box.error {
+        display: block;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.3rem;
+        font-size: 0.9rem;
+      }
+      .message-box.success {
+        background-color: darkolivegreen;
+        color: white;
+      }
+      .message-box.error {
+        background-color: darkred;
+        color: white;
+      }
+      .message-box.info {
+        background-color: peru;
+        color: black;
+      }
       details {
         padding: 0.5rem 0;
         font-size: 1rem;
@@ -116,27 +144,6 @@
             </a>
           </p>
         </div>
-        <h3 class="largeHeadingMargin">Have a Question?</h3>
-        <form action="https://formsubmit.co/dev@bluecaret.com" method="POST">
-          <input type="hidden" name="_next" value="https://carettab.com/help/thanks/" />
-          <input type="hidden" name="_subject" value="Response to Your Inquiry on CaretTab" />
-          <input
-            type="hidden"
-            name="_autoresponse"
-            value="Hello, Thank you for reaching out via CaretTab's contact form! I have successfully received your message and appreciate the time you've taken to get in touch. I'll review your inquiry and respond as soon as possible. If you have any additional information to add or if your request is urgent, don't hesitate to send another email to dev@bluecaret.com (do not reply to this message). Thank you for your interest in CaretTab. I'm here to help you. Cheers! -BlueCaret, Developer of CaretTab"
-          />
-          <div class="form-group">
-            <label for="email">Your email address:</label>
-            <input type="email" name="email" class="form-control" required />
-          </div>
-          <div class="form-group">
-            <label for="message">Your message:</label>
-            <textarea class="form-control" name="message" rows="10" required></textarea>
-          </div>
-          <div class="form-group">
-            <button id="submit" class="btn">Send message</button>
-          </div>
-        </form>
         <h3 class="largeHeadingMargin">Frequently Asked Questions</h3>
         <div class="faq">
           <h4>General questions</h4>
@@ -304,44 +311,60 @@
 
           <h4>Using the extension</h4>
 
-            <details>
-              <summary>How do I save my changes to settings?</summary>
-              <p>
-                Anytime you close the settings panel your changes are automatically saved. You can also click the save
-                button in the top right corner at any time to save without closing. In addition, some actions such as
-                adding or removing widgets will automatically save in that moment. You can revert some changes by simply
-                refreshing or closing the tab before closing the settings panel; anything that was changed since opening
-                the settings should revert back.
-              </p>
-            </details>
+          <details>
+            <summary>How do I save my changes to settings?</summary>
+            <p>
+              Anytime you close the settings panel your changes are automatically saved. You can also click the save
+              button in the top right corner at any time to save without closing. In addition, some actions such as
+              adding or removing widgets will automatically save in that moment. You can revert some changes by simply
+              refreshing or closing the tab before closing the settings panel; anything that was changed since opening
+              the settings should revert back.
+            </p>
+          </details>
 
-            <details>
-              <summary>How do I sync my settings between browsers?</summary>
-              <p>
-                Settings sync is automatically enabled when you sign into your browser, providing the browser supports
-                syncing. Google Chrome and Microsoft Edge should both sync your settings when signed into each
-                respectively.
-              </p>
-              <p>It is currently not possible to sync your settings between different types of browsers.</p>
-              <p>
-                Another option available is exporting your settings from one browser and importing them to the other.
-                This option can be found in the Settings Dashboard, under "Extension settings", select "Advanced
-                settings" and you will see an Export and Import option. Note that this is a manual process and any time
-                you make changes to your settings you will want to perform the export/import process again.
-              </p>
-            </details>
+          <details>
+            <summary>How do I sync my settings between browsers?</summary>
+            <p>
+              Settings sync is automatically enabled when you sign into your browser, providing the browser supports
+              syncing. Google Chrome and Microsoft Edge should both sync your settings when signed into each
+              respectively.
+            </p>
+            <p>It is currently not possible to sync your settings between different types of browsers.</p>
+            <p>
+              Another option available is exporting your settings from one browser and importing them to the other. This
+              option can be found in the Settings Dashboard, under "Extension settings", select "Advanced settings" and
+              you will see an Export and Import option. Note that this is a manual process and any time you make changes
+              to your settings you will want to perform the export/import process again.
+            </p>
+          </details>
 
-            <details>
-              <summary>Where did the color theme options go?</summary>
-              <p>
-                As of version 4.0.0, settings for widgets have greatly improved including allowing you to individually set
-                the colors of widgets. Due to this it no longer made sense to combine the background and text colors in
-                the same area. To set the wallpaper color, from the Settings Dashboard, click the Wallpaper section, and
-                then click the color field. To set the text colors, open the "Widget Font Styles" section in the Dashboard
-                and change the color field; or edit a specific widget and change the color from the "Widget Font Styles"
-                section within the widget's settings.
-              </p>
-            </details>
+          <details>
+            <summary>How do I move a widget to a different spot?</summary>
+            <p>
+              Once you've added a widget, click the "edit" button on the dashboard then open the "Widget container"
+              section. In this area you can change the alignment, position, and size of the widget container. You may
+              need to play around with some of the options here to get what you are looking for as some may work
+              slightly different depending on the widget type.
+            </p>
+            <p>
+              Pro tip: Click the square icon in the top right corner of the settings panel near the save button to
+              enable the Outliner mode. This will temporarily display an outline around widgets giving you a better idea
+              of what the size and placement of the widget actually is. Also try the dotted grid icon next to it which
+              overlays a grid on the page to help with alignment.
+            </p>
+          </details>
+
+          <details>
+            <summary>Where did the color theme options go?</summary>
+            <p>
+              As of version 4.0.0, settings for widgets have greatly improved including allowing you to individually set
+              the colors of widgets. Due to this it no longer made sense to combine the background and text colors in
+              the same area. To set the wallpaper color, from the Settings Dashboard, click the Wallpaper section, and
+              then click the color field. To set the text colors, open the "Widget Font Styles" section in the Dashboard
+              and change the color field; or edit a specific widget and change the color from the "Widget Font Styles"
+              section within the widget's settings.
+            </p>
+          </details>
 
           <details>
             <summary>Why is the widget not showing on the page?</summary>
@@ -384,9 +407,84 @@
             </p>
           </details>
         </div>
+        <h3 class="largeHeadingMargin">Have a Question?</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="email">Your name:</label>
+            <input type="text" id="name" name="name" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your email address:</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Your message:</label>
+            <textarea class="form-control" id="message" name="message" rows="10" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="submit" class="btn">Send message</button>
+          </div>
+        </form>
+        <div id="messageBox" class="message-box" aria-live="polite"></div>
       </div>
       <app-footer></app-footer>
     </div>
+
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault()
+
+        const submitButton = document.getElementById('submit')
+        const messageBox = document.getElementById('messageBox')
+        const form = document.getElementById('contactForm')
+
+        submitButton.disabled = true
+        messageBox.textContent = ''
+        messageBox.classList.remove('success', 'error', 'info')
+
+        if (
+          document.getElementById('name').value.trim() &&
+          document.getElementById('email').value.trim() &&
+          document.getElementById('message').value.trim()
+        ) {
+          const formData = {
+            site: 'CaretTab',
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+          }
+
+          fetch('https://vzyoaxqaw4.execute-api.us-west-2.amazonaws.com/v1/contactForm', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              if (response.ok) {
+                messageBox.textContent =
+                  "Thank you for reaching out! I've received your message and will respond promptly. Your patience is much appreciated. Should you have any further details or questions, please feel free to email again at dev@bluecaret.com."
+                messageBox.classList.add('success')
+                form.reset()
+              } else {
+                messageBox.textContent = 'Failed to send message. Please try again later.'
+                throw new Error('Failed to send message')
+                messageBox.classList.add('error')
+              }
+            })
+            .catch((error) => {
+              console.error('There was an error:', error)
+              messageBox.textContent = 'Failed to send message. Please try again later.'
+              messageBox.classList.add('error')
+            })
+            .finally(() => {
+              submitButton.disabled = false // Re-enable the submit button.
+            })
+        } else {
+          messageBox.textContent = 'You are missing some information. Please fill out the entire form and try again.'
+          messageBox.classList.add('info')
+          submitButton.disabled = false // Re-enable the submit button.
+        }
+      })
+    </script>
 
     <script type="module" src="/js/header.js"></script>
     <script type="module" src="/js/footer.js"></script>
