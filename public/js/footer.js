@@ -134,13 +134,13 @@ class AppFooter extends HTMLElement {
           </h2>
           <div class="footerLinks">
             <a href="/help">Help & Tips</a>
+            <a href="/contact">Contact</a>
             <a href="https://github.com/bluecaret/carettab/discussions" target="_blank" rel="noreferrer">
               Discussions
             </a>
             <a href="https://github.com/bluecaret/carettab/" rel="noreferrer">Github</a>
             <a href="https://bluecaret.com/privacy">Privacy Policy</a>
             <a href="https://bluecaret.com/terms">Terms of Use</a>
-            <a href="https://bluecaret.com/contact">Contact</a>
           </div>
           <div class="copyrightWrapper">
             <a

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | CaretTab - New Tab Dashboard</title>
+    <meta
+      name="description"
+      content="A browser extension that replaces your New Tab page with a unique and fully customizable dashboard."
+    />
+    <meta property="og:title" content="CaretTab - New Tab Dashboard | Browser extension for Chrome and Edge" />
+    <meta
+      property="og:description"
+      content="A browser extension that replaces your New Tab page with a unique and fully customizable dashboard."
+    />
+    <meta property="og:image" content="/img/carettab promo screenshot1.jpg" />
+    <meta property="og:url" content="https://www.carettab.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.2rem;
+        font-size: 0.9rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        box-sizing: border-box;
+        border-radius: 0.3rem;
+        border: none;
+        background: hsl(0deg 0% 100% / 0.6);
+        font-size: 1rem;
+      }
+      .form-group input {
+        font-family: 'Source Sans 3', sans-serif;
+      }
+      .btn:disabled {
+        box-shadow: 0 0 0 0 transparent;
+        opacity: 0.8;
+        cursor: wait;
+      }
+      .message-box {
+        display: block;
+      }
+      .message-box.info,
+      .message-box.success,
+      .message-box.error {
+        display: block;
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.3rem;
+        font-size: 0.9rem;
+      }
+      .message-box.success {
+        background-color: darkolivegreen;
+        color: white;
+      }
+      .message-box.error {
+        background-color: darkred;
+        color: white;
+      }
+      .message-box.info {
+        background-color: peru;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="app">
+      <app-header data-subpage="true"></app-header>
+      <div class="container subpage">
+        <h2>Have a Question about CaretTab?</h2>
+        <p>Fill out the form below or simply send an email to dev@bluecaret.com</p>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="email">Your name:</label>
+            <input type="text" id="name" name="name" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your email address:</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Your message:</label>
+            <textarea class="form-control" id="message" name="message" rows="10" required></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="submit" class="btn">Send message</button>
+          </div>
+        </form>
+        <div id="messageBox" class="message-box" aria-live="polite"></div>
+      </div>
+      <app-footer></app-footer>
+    </div>
+
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault()
+
+        const submitButton = document.getElementById('submit')
+        const messageBox = document.getElementById('messageBox')
+        const form = document.getElementById('contactForm')
+
+        submitButton.disabled = true
+        messageBox.textContent = ''
+        messageBox.classList.remove('success', 'error', 'info')
+
+        if (
+          document.getElementById('name').value.trim() &&
+          document.getElementById('email').value.trim() &&
+          document.getElementById('message').value.trim()
+        ) {
+          const formData = {
+            site: 'CaretTab',
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+          }
+
+          fetch('https://vzyoaxqaw4.execute-api.us-west-2.amazonaws.com/v1/contactForm', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+          })
+            .then((response) => {
+              if (response.ok) {
+                messageBox.textContent =
+                  "Thank you for reaching out! I've received your message and will respond promptly. Your patience is much appreciated. Should you have any further details or questions, please feel free to email again at dev@bluecaret.com."
+                messageBox.classList.add('success')
+                form.reset()
+              } else {
+                messageBox.textContent = 'Failed to send message. Please try again later.'
+                throw new Error('Failed to send message')
+                messageBox.classList.add('error')
+              }
+            })
+            .catch((error) => {
+              console.error('There was an error:', error)
+              messageBox.textContent = 'Failed to send message. Please try again later.'
+              messageBox.classList.add('error')
+            })
+            .finally(() => {
+              submitButton.disabled = false // Re-enable the submit button.
+            })
+        } else {
+          messageBox.textContent = 'You are missing some information. Please fill out the entire form and try again.'
+          messageBox.classList.add('info')
+          submitButton.disabled = false // Re-enable the submit button.
+        }
+      })
+    </script>
+
+    <script type="module" src="/js/header.js"></script>
+    <script type="module" src="/js/footer.js"></script>
+  </body>
+</html>
