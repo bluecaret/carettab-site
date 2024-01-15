@@ -376,9 +376,10 @@ native-gallery img {
   }
 }
 
-.premiumAccess img {
-  @media screen and (min-width: 720px) {
-    order: 1;
+.finalBox {
+  justify-content: center;
+  > * {
+    max-width: 40rem;
   }
 }
 
