@@ -86,7 +86,7 @@ class AppFooter extends HTMLElement {
       .copyrightWrapper {
         display: flex;
         justify-content: center;
-        gap: 1rem;
+        gap: 2rem;
         flex-wrap: wrap;
         align-items: center;
         margin-top: 1.5rem;
@@ -104,6 +104,15 @@ class AppFooter extends HTMLElement {
       .bluecaret img {
         width: auto;
         height: 2.4rem;
+      }
+      .bmc {
+        width: auto;
+        height: 2rem;
+      }
+      .bmc img {
+        height: 100%;
+        width: auto;
+        vertical-align: middle;
       }
       </style>
 
@@ -155,6 +164,7 @@ class AppFooter extends HTMLElement {
               Designed and developed by BlueCaret<br/>
               <a href="https://www.freepik.com/author/vectorjuice" class="credit">Marketing graphics by vectorjuice on Freepik</a>
             </div>
+            <a href="https://www.buymeacoffee.com/bluecaret" class="bmc"><img src="/img/bmc-full-logo-no-background.png" alt="Support the developer by buying me a coffee" /></a>
           </div>
           
         </div>
